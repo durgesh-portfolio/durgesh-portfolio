@@ -10,50 +10,60 @@
             margin: 0;
             padding: 0;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            box-sizing: border-box;
         }
         body{
             background-color: gray;
             background-size: cover;
         }
-        #form {
+        #form
+        {
             display: flex;
-            flex-wrap: wrap;
             border: 1px solid black;
-            max-width: 800px;
-            margin: 30px auto;
+            max-width:fit-content;
+            margin-left: auto;
+            margin-right: auto;
+            flex-wrap: wrap;
             padding: 50px;
             background-color: black;
             box-shadow: 1px 15px 10px black;
         }
-        form input, form textarea {
+        form input
+        {
             border: none;
             border-bottom: 2px solid yellow;
+            width: 250px;
             background-color: transparent;
             color: yellow;
-            width: 100%;
-            height: 30px;
-            margin-bottom: 20px;
-            padding: 10px;
-            font-size: 16px;
+            height:30px;
+            text-indent: 10px;
         }
-        form input:focus, form textarea:focus {
+        form input:focus{
             outline: none;
-            box-shadow: 0px 5px -5px yellow;
+            box-shadow:0px 5px -5px yellow;
             transition-duration: 1s;
             background-color: yellow;
             color: rgb(112, 111, 111);
             font-weight: 700;
         }
-        .form div {
+        .form div{
             display: flex;
-            flex-direction: column;
             padding: 10px;
-            width: 100%;
+            /* flex-wrap:wrap; */
+            flex-basis: 300;
+            padding-top: 20px;
+            padding-bottom: 30px;
+            flex-basis: 200;
+            label{
+                text-wrap: nowrap;
+            }
         }
-        #massege {
+        #massege{
+            display:block;
             resize: none;
             height: 100px;
+            width: 400px;
+            margin-top: 30px;
+            margin-left: -190px;
             background-color: transparent;
             color: white;
             padding-left: 10px;
@@ -63,22 +73,26 @@
             font-weight: 600;
             font-size: 15px;
         }
-        #massege:focus {
+        #massege:focus{
             transition: 1s ease;
             outline: none;
+            color: white;
             border: 2px solid yellow;
             box-shadow: 0px 2px 5px yellow;
         }
-        #form div label {
-            padding-bottom: 10px;
+        #form div label{
+            padding-right: 50px;
+            display: block;
             color: white;
-            font-weight: bold;
         }
-        #submit {
-            text-align: center;
-            margin-top: 20px;
+        #submit{
+            color: white;
+            display: block;
+            margin-right: auto;
+            margin-left: auto;
+            width: fit-content;
         }
-        #submit button {
+        #submit button{
             padding: 10px;
             cursor: pointer;
             border: 2px solid yellow;
@@ -86,64 +100,36 @@
             color: white;
             border-radius: 3px;
             font-size: 30px;
+            padding: 5px 20px 5px  20px;
         }
-        #submit button:hover {
+        #submit button:hover{
             transition: 1s ease;
             background-color: yellow;
             color: black;
             font-weight: 700;
+            box-sizing:border-box;
             text-shadow: 0px 0px 1px black;
             box-shadow: 0px 0px 20px yellow;
         }
-        #head {
+        #head{
             margin-top: 20px;
             margin-bottom: 10px;
             text-align: center;
+            max-width:fit-content;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 5px;
             color: white;
         }
-        h1 {
+        h1
+        {
             background-color: black;
-            text-align: center;
-            box-shadow: 1px -1px 10px black, -1px 1px 10px black;
-            padding: 10px;
-            color: white;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            #form {
-                padding: 20px;
-                margin: 20px;
-            }
-            h1 {
-                margin: 20px;
-                font-size: 24px;
-            }
-            form input, form textarea {
-                font-size: 14px;
-            }
-            #submit button {
-                font-size: 24px;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            #form {
-                padding: 10px;
-                margin: 10px;
-            }
-            h1 {
-                margin: 10px;
-                font-size: 20px;
-            }
-            form input, form textarea {
-                font-size: 12px;
-                padding: 8px;
-            }
-            #submit button {
-                font-size: 20px;
-                padding: 5px 15px;
-            }
+            margin-right:30.5%;
+            margin-left: 30%;
+            box-shadow: 1px -1px 10px black,
+                        -1px 1px 10px black,
+                        1px -1px 10px black,
+                        -1px 1px 10px black;
         }
     </style>
 </head>
@@ -153,22 +139,22 @@
         <form action="" method="get" class="form">
             <div>
                 <label for="name">Name</label>
-                <input type="text" id="name" placeholder="Iron man" autocomplete="off" required>
+                <input type="text" id="name" placeholder="Iron man" autocomplete="off" required><br>
             </div>
             <div>
                 <label for="email">E-Mail</label>
-                <input type="email" id="email" placeholder="ironman@email.com" autocomplete="off" required>
+                <input type="email" id="email" placeholder="ironman@email.com" autocomplete="off" required><br>
             </div>
             <div>
                 <label for="mobile">Phone</label>
-                <input type="tel" id="mobile" placeholder="+91 900000123" autocomplete="off" required>
+                <input type="tel" id="mobile" placeholder="+91 900000123" autocomplete="off" required><br>
             </div>
             <div>
-                <label>Write your message</label> 
-                <textarea name="message" id="massege" placeholder="Hello, sir you are hired..."></textarea>
+                <label>Write your massege</label> 
+                <textarea name="massege" id="massege" placeholder="Hello, sir you are hired . . . ."></textarea>
             </div>
             <div id="submit">
-                <button type="submit"><i class="fa-sharp fa-solid fa-paper-plane"></i></button>
+                <button type="submit" value="submit" name="submit"><i class="fa-sharp fa-solid fa-paper-plane"></i></button>
             </div>
         </form>
     </div>
