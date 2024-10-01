@@ -1,76 +1,129 @@
-*{
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
-h1{
+
+h1 {
     text-align: center;
     border: 2px solid black;
     background-color: black;
     color: white;
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif ;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     width: 50%;
-    margin: auto;
-    margin-top: 20px;
+    margin: 20px auto;
     border-radius: 5px;
+    padding: 10px;
 }
-.box-container{
+
+.box-container {
     padding-top: 20px;
     display: flex;
     flex-direction: column;
     border: 2px solid black;
     width: 30%;
-    height: 500px;
-    margin: auto;
+    height: auto;
+    margin: 30px auto;
     align-items: center;
-    margin-top: 30px;
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    border: 3px solid black;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     border-radius: 5px;
+    padding: 20px;
 }
-.input{
-    padding-top: 20px;
-    padding-bottom: 20px;
+
+.input {
+    padding: 20px 0;
+    width: 100%;
 }
-.input input{
+
+.input input {
     margin-top: 10px;
-    width: 295px;
-    padding: 10px;  
-    height: 25px;
-}
-.input select{
+    width: 100%;
     padding: 10px;
-    height: 47px;
+    height: 25px;
+    border: 1px solid black;
+    border-radius: 4px;
 }
-.input #Height{
+
+.input select {
+    padding: 10px;
+    width: 100%;
+    height: 47px;
+    border: 1px solid black;
+    border-radius: 4px;
+}
+
+.input #Height {
     width: 100px;
 }
-.BMI-output{
+
+.BMI-output, .conclusion {
     margin-top: 30px;
     padding: 10px;
-    width: 400px;
-    height: 30px;
+    width: 100%;
+    max-width: 400px;
     border: 1px solid black;
     font-size: larger;
     text-align: center;
+    border-radius: 4px;
 }
-.conclusion{
+
+.conclusion {
     margin-top: 10px;
-    padding: 10px;
-    width: 400px;
-    height: fit-content;
-    border: 1px solid black;
-    font-size: larger;
-    text-align: center;
 }
-.button{
+
+.button {
     margin-top: 10px;
-    width: 422px;
-    padding-top: 10px;
+    width: 100%;
+    max-width: 422px;
     height: 40px;
     margin-bottom: 50px;
 }
-.button button{
-    width: inherit;
-    height: inherit;
+
+.button button {
+    width: 100%;
+    height: 100%;
     font-size: larger;
+    border: none;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.button button:hover {
+    background-color: yellow;
+    color: black;
+    box-shadow: 0 0 10px yellow;
+}
+
+@media (max-width: 768px) {
+    h1 {
+        width: 80%;
+    }
+    .box-container {
+        width: 70%;
+    }
+    .BMI-output, .conclusion, .button {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        width: 90%;
+    }
+    .box-container {
+        width: 90%;
+        padding: 15px;
+    }
+    .input input, .input select {
+        font-size: 1rem;
+    }
+    .BMI-output, .conclusion {
+        font-size: medium;
+    }
+    .button button {
+        font-size: medium;
+    }
 }
