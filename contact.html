@@ -9,124 +9,146 @@
         *{
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            box-sizing: border-box;
         }
         body{
-            background-color: #333;
+            background-color: gray;
             background-size: cover;
-            padding: 20px;
-            color: #fff;
-        }
-        h1 {
-            text-align: center;
-            color: #fff;
-            font-size: 2rem;
-            margin-bottom: 20px;
         }
         #form {
-            background-color: #000;
-            padding: 40px;
-            border-radius: 8px;
-            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        form {
             display: flex;
-            flex-direction: column;
-            gap: 20px;
+            flex-wrap: wrap;
+            border: 1px solid black;
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 50px;
+            background-color: black;
+            box-shadow: 1px 15px 10px black;
         }
-        form div {
-            display: flex;
-            flex-direction: column;
-        }
-        label {
-            margin-bottom: 8px;
-            font-size: 1.1rem;
-        }
-        form input
-        {
+        form input, form textarea {
             border: none;
             border-bottom: 2px solid yellow;
-            width: 250px;
             background-color: transparent;
             color: yellow;
-            height:30px;
-            text-indent: 10px;
+            width: 100%;
+            height: 30px;
+            margin-bottom: 20px;
+            padding: 10px;
+            font-size: 16px;
         }
-        form input:focus{
+        form input:focus, form textarea:focus {
             outline: none;
-            box-shadow:0px 5px -5px yellow;
+            box-shadow: 0px 5px -5px yellow;
             transition-duration: 1s;
             background-color: yellow;
             color: rgb(112, 111, 111);
             font-weight: 700;
         }
-        textarea {
-            border: 2px solid yellow;
-            background-color: transparent;
-            color: yellow;
+        .form div {
+            display: flex;
+            flex-direction: column;
             padding: 10px;
-            font-size: 1rem;
-            border-radius: 4px;
-            transition: all 0.3s ease;
+            width: 100%;
         }
-        input:focus, textarea:focus {
-            border-color: #ffd700;
-            background-color: #f0e68c;
-            color: #333;
-            outline: none;
-        }
-        textarea {
+        #massege {
             resize: none;
             height: 100px;
+            background-color: transparent;
+            color: white;
+            padding-left: 10px;
+            padding-top: 10px;
+            border-radius: 5px;
+            border: 1px solid white;
+            font-weight: 600;
+            font-size: 15px;
+        }
+        #massege:focus {
+            transition: 1s ease;
+            outline: none;
+            border: 2px solid yellow;
+            box-shadow: 0px 2px 5px yellow;
+        }
+        #form div label {
+            padding-bottom: 10px;
+            color: white;
+            font-weight: bold;
+        }
+        #submit {
+            text-align: center;
+            margin-top: 20px;
         }
         #submit button {
-            padding: 10px 20px;
-            font-size: 1.2rem;
-            color: yellow;
+            padding: 10px;
+            cursor: pointer;
             border: 2px solid yellow;
             background-color: transparent;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: all 0.3s ease;
+            color: white;
+            border-radius: 3px;
+            font-size: 30px;
         }
         #submit button:hover {
+            transition: 1s ease;
             background-color: yellow;
             color: black;
-            box-shadow: 0 0 10px yellow;
+            font-weight: 700;
+            text-shadow: 0px 0px 1px black;
+            box-shadow: 0px 0px 20px yellow;
         }
-        #submit button i {
-            margin-right: 10px;
+        #head {
+            margin-top: 20px;
+            margin-bottom: 10px;
+            text-align: center;
+            color: white;
         }
-        @media screen and (max-width: 768px) {
-            h1 {
-                font-size: 1.8rem;
-            }
-            #form {
-                padding: 30px;
-            }
+        h1 {
+            background-color: black;
+            text-align: center;
+            box-shadow: 1px -1px 10px black, -1px 1px 10px black;
+            padding: 10px;
+            color: white;
         }
-        @media screen and (max-width: 480px) {
-            h1 {
-                font-size: 1.5rem;
-            }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
             #form {
                 padding: 20px;
+                margin: 20px;
             }
-            input, textarea {
-                font-size: 0.9rem;
+            h1 {
+                margin: 20px;
+                font-size: 24px;
+            }
+            form input, form textarea {
+                font-size: 14px;
             }
             #submit button {
-                font-size: 1rem;
-                padding: 8px 16px;
+                font-size: 24px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            #form {
+                padding: 10px;
+                margin: 10px;
+            }
+            h1 {
+                margin: 10px;
+                font-size: 20px;
+            }
+            form input, form textarea {
+                font-size: 12px;
+                padding: 8px;
+            }
+            #submit button {
+                font-size: 20px;
+                padding: 5px 15px;
             }
         }
     </style>
 </head>
 <body>
-    <h1>Contact Me</h1>
+    <h1><div id="head">Contact me</div></h1>
     <div id="form">
         <form action="" method="get" class="form">
             <div>
@@ -143,12 +165,10 @@
             </div>
             <div>
                 <label>Write your message</label> 
-                <textarea name="message" id="message" placeholder="Hello, sir you are hired . . . ."></textarea>
+                <textarea name="message" id="massege" placeholder="Hello, sir you are hired..."></textarea>
             </div>
             <div id="submit">
-                <button type="submit" value="submit" name="submit">
-                    <i class="fa-solid fa-paper-plane"></i> Send Message
-                </button>
+                <button type="submit"><i class="fa-sharp fa-solid fa-paper-plane"></i></button>
             </div>
         </form>
     </div>
