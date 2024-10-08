@@ -3,136 +3,96 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact</title>
-    <script src="https://kit.fontawesome.com/dcaa2f59de.js" crossorigin="anonymous"></script>
-    <style>
-        *{
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        body{
-            background-color: #333;
-            background-size: cover;
-            padding: 20px;
-            color: #fff;
-        }
-        h1 {
-            text-align: center;
-            color: #fff;
-            font-size: 2rem;
-            margin-bottom: 20px;
-        }
-        #form {
-            background-color: #000;
-            padding: 40px;
-            border-radius: 8px;
-            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        form {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-        form div {
-            display: flex;
-            flex-direction: column;
-        }
-        label {
-            margin-bottom: 8px;
-            font-size: 1.1rem;
-        }
-        input, textarea {
-            border: 2px solid yellow;
-            background-color: transparent;
-            color: yellow;
-            padding: 10px;
-            font-size: 1rem;
-            border-radius: 4px;
-            transition: all 0.3s ease;
-        }
-        input:focus, textarea:focus {
-            border-color: #ffd700;
-            background-color: #f0e68c;
-            color: #333;
-            outline: none;
-        }
-        textarea {
-            resize: none;
-            height: 100px;
-        }
-        #submit button {
-            padding: 10px 20px;
-            font-size: 1.2rem;
-            color: yellow;
-            border: 2px solid yellow;
-            background-color: transparent;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        #submit button:hover {
-            background-color: yellow;
-            color: black;
-            box-shadow: 0 0 10px yellow;
-        }
-        #submit button i {
-            margin-right: 10px;
-        }
-        @media screen and (max-width: 768px) {
-            h1 {
-                font-size: 1.8rem;
-            }
-            #form {
-                padding: 30px;
-            }
-        }
-        @media screen and (max-width: 480px) {
-            h1 {
-                font-size: 1.5rem;
-            }
-            #form {
-                padding: 20px;
-            }
-            input, textarea {
-                font-size: 0.9rem;
-            }
-            #submit button {
-                font-size: 1rem;
-                padding: 8px 16px;
-            }
-        }
-    </style>
+    <title>Modern Contact Form</title>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-    <h1>Contact Me</h1>
-    <div id="form">
-        <form action="" method="get" class="form">
+<body class="bg-gray-900 min-h-screen flex items-center justify-center p-4">
+    <div class="bg-gray-800 rounded-lg shadow-lg p-8 max-w-md w-full border-2 border-yellow-400 transition-shadow duration-300 ease-in-out">
+        <h2 class="text-2xl font-bold mb-6 text-center text-yellow-400">Contact Us</h2>
+        <form id="contactForm" class="space-y-4">
             <div>
-                <label for="name">Name</label>
-                <input type="text" id="name" placeholder="Iron man" autocomplete="off" required>
-            </div>
-            <div>
-                <label for="email">E-Mail</label>
-                <input type="email" id="email" placeholder="ironman@email.com" autocomplete="off" required>
+                <label for="name" class="block text-sm font-medium text-yellow-300">Name</label>
+                <input type="text" id="name" name="name" placeholder="Iron Man" autocomplete="off" required class="mt-1 block w-full px-3 py-2 bg-gray-700 border border-yellow-400 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500 text-yellow-100 transition-shadow focus:shadow-lg">
+                <p id="nameError" class="mt-1 text-sm text-red-400 hidden"></p>
             </div>
             <div>
-                <label for="mobile">Phone</label>
-                <input type="tel" id="mobile" placeholder="+91 900000123" autocomplete="off" required>
+                <label for="email" class="block text-sm font-medium text-yellow-300">Email</label>
+                <input type="email" id="email" name="email" placeholder="ironman@email.com" autocomplete="off" required class="mt-1 block w-full px-3 py-2 bg-gray-700 border border-yellow-400 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500 text-yellow-100 transition-shadow focus:shadow-lg">
+                <p id="emailError" class="mt-1 text-sm text-red-400 hidden"></p>
             </div>
             <div>
-                <label>Write your message</label> 
-                <textarea name="message" id="message" placeholder="Hello, sir you are hired . . . ."></textarea>
+                <label for="message" class="block text-sm font-medium text-yellow-300">Message</label>
+                <textarea id="message" name="message" rows="4" placeholder="Hello, sir, you are hired..." class="mt-1 block w-full px-3 py-2 bg-gray-700 border border-yellow-400 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500 text-yellow-100 transition-shadow focus:shadow-lg"></textarea>
+                <p id="messageError" class="mt-1 text-sm text-red-400 hidden"></p>
             </div>
-            <div id="submit">
-                <button type="submit" value="submit" name="submit">
-                    <i class="fa-solid fa-paper-plane"></i> Send Message
-                </button>
-            </div>
+            <button type="submit" class="w-full flex justify-center items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-gray-900 bg-yellow-400 hover:bg-yellow-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-500 transition duration-150 ease-in-out">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" clip-rule="evenodd" />
+                </svg>
+                Send Message
+            </button>
         </form>
+        <div id="formFeedback" class="mt-4 p-4 rounded-md hidden">
+            <p class="text-center font-medium"></p>
+        </div>
     </div>
+    <script>
+        const form = document.getElementById('contactForm');
+        const formFeedback = document.getElementById('formFeedback');
+
+        const validateEmail = (email) => {
+            const re = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            return re.test(String(email).toLowerCase());
+        };
+
+        const showError = (inputId, message) => {
+            const errorElement = document.getElementById(`${inputId}Error`);
+            errorElement.textContent = message;
+            errorElement.classList.remove('hidden');
+        };
+
+        const hideError = (inputId) => {
+            const errorElement = document.getElementById(`${inputId}Error`);
+            errorElement.classList.add('hidden');
+        };
+
+        const validateInput = (input) => {
+            if (input.validity.valueMissing) {
+                showError(input.id, `${input.name} is required`);
+            } else if (input.id === 'email' && !validateEmail(input.value)) {
+                showError(input.id, 'Please enter a valid email address');
+            } else {
+                hideError(input.id);
+            }
+        };
+
+        form.querySelectorAll('input, textarea').forEach(input => {
+            input.addEventListener('blur', () => validateInput(input));
+            input.addEventListener('input', () => validateInput(input));
+        });
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            let isValid = true;
+
+            form.querySelectorAll('input, textarea').forEach(input => {
+                validateInput(input);
+                if (!input.validity.valid) {
+                    isValid = false;
+                }
+            });
+
+            if (isValid) {
+                formFeedback.classList.remove('hidden', 'bg-red-800', 'text-red-200');
+                formFeedback.classList.add('bg-green-800', 'text-green-200');
+                formFeedback.querySelector('p').textContent = 'Form submitted successfully!';
+                form.reset();
+            } else {
+                formFeedback.classList.remove('hidden', 'bg-green-800', 'text-green-200');
+                formFeedback.classList.add('bg-red-800', 'text-red-200');
+                formFeedback.querySelector('p').textContent = 'Please correct the errors and try again.';
+            }
+        });
+    </script>
 </body>
 </html>
